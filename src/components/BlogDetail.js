@@ -7,6 +7,7 @@ import { initializeUserFromLocalStorage } from '../reducers/userReducer'
 import { initializeObjs } from '../reducers/blogsReducer'
 import Comments from './Comments'
 import blogService from '../services/blogs'
+import CommentForm from './CommentForm'
 
 const BlogDetail = () => {
   const urlParam = useParams()
@@ -66,6 +67,7 @@ const BlogDetail = () => {
       }
 
       <h2>comments</h2>
+      <CommentForm comments={comments} setComments={setComments} />
       <Comments comments={comments} />
     </div>
   )
