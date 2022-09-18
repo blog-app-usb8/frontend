@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Togglable from './components/utils/Togglable'
+import Notification from './components/utils/Notification'
 
-import Notification from './components/Notification'
 import LoginForm from './components/LoginForm'
 import UserInfo from './components/UserInfo'
 import BlogForm from './components/BlogForm'
