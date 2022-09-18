@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseUrl = '/api/login'
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+const baseUrl = `${BACKEND_URL}/api/login`
 
 const login = async (credentials) => {
   const response = await axios.post(baseUrl, credentials)

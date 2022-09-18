@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseUrl = '/api/blogs'
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL
+const baseUrl = `${BACKEND_URL}/api/blogs`
 
 let token = null
 let config = {}
