@@ -29,7 +29,7 @@ const Writers = () => {
         <div style={rightStyle}>blogs created</div>
       </div>
       {writers.map((o) => (
-        <Link key={o.id} to={`/users/${o.id}`}>
+        <Link key={o.id} to={`/writers/${o.id}`}>
           <Writer writer={o} />
         </Link>
       ))}
