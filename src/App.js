@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import Togglable from './components/utils/Togglable'
 
@@ -11,8 +11,15 @@ import Writers from './components/Writers'
 import WriterDetail from './components/WriterDetail'
 import BlogDetail from './components/BlogDetail'
 
+import { useSelector, useDispatch } from 'react-redux'
+import { initializeUserFromLocalStorage } from './reducers/userReducer'
+
 function App() {
-  const user = true
+  const user = useSelector(({ user }) => user)
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(initializeUserFromLocalStorage())
+  }, [dispatch])
 
   const blogFormRef = useRef()
 
@@ -22,9 +29,9 @@ function App() {
   }
   return (
     <div className="App">
-      { !user &&
+      { !user && // user === null
         <>
-          <h2>log in to app</h2>
+          <h1>LOG IN TO APP</h1>
           <Notification />
           <LoginForm />
         </>
@@ -40,7 +47,7 @@ function App() {
 
           <Notification />
 
-          <h2>blogs app</h2>
+          <h1>BLOGS APP</h1>
 
           <Routes>
             <Route path="/" element={
