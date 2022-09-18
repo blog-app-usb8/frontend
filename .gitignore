@@ -21,3 +21,22 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# ----------------------
+*.git/
+*.env*
+
+forme/
+note*.md
+
+# *.eslint*.js
+# *.eslintignore
+# *.prettierrc
+
+# *db/
+
+# *.dockerignore
+# *Dockerfile
+# *dev.Dockerfile
+# *docker-compose.yml
+# *docker-compose.dev.yml
