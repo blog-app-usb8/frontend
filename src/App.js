@@ -1,10 +1,10 @@
 import React, { useRef, useEffect } from 'react'
-import { Routes, Route, Link } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Togglable from './components/utils/Togglable'
 import Notification from './components/utils/Notification'
 
+import NavBar from './components/NavBar'
 import LoginForm from './components/LoginForm'
-import UserInfo from './components/UserInfo'
 import BlogForm from './components/BlogForm'
 import Blogs from './components/Blogs'
 import Writers from './components/Writers'
@@ -23,10 +23,6 @@ function App() {
 
   const blogFormRef = useRef()
 
-  const padding = {
-    paddingRight: 5,
-    paddingLeft: 5
-  }
   return (
     <div className="App">
       { !user && // user === null
@@ -39,12 +35,7 @@ function App() {
 
       { user &&
         <>
-          <div style={{ clear: 'both', backgroundColor: 'gray' }}>
-            <Link style={padding} to="/">blogs</Link>
-            <Link style={padding} to="/writers">writers</Link>
-            <UserInfo user={user} />
-          </div>
-
+          <NavBar />
           <Notification />
 
           <h1>BLOGS APP</h1>
