@@ -2,6 +2,8 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../reducers/userReducer'
 
+import { Button } from '@mui/material'
+
 const UserInfo = () => {
   const user = useSelector(({ user }) => user)
 
@@ -11,12 +13,12 @@ const UserInfo = () => {
   }
 
   return (
-    <>
-      {user.name} logged in
-      <button id="logout-button" onClick={handleLogout}>
+    <div style={{ marginLeft: 20 }}>
+      {user.name} logged in &nbsp;
+      <Button variant="outlined" color="inherit" size="small" onClick={handleLogout}>
         logout
-      </button>
-    </>
+      </Button>
+    </div>
   )
 }
 
