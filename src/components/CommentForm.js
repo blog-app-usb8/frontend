@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import blogsService from '../services/blogs'
 
+import { TextField, Button } from '@mui/material'
+
 const CommentForm = (props) => {
   const urlParam = useParams()
   const blogId = urlParam.id
@@ -34,13 +36,14 @@ const CommentForm = (props) => {
     <div>
       <form onSubmit={handleOnSubmit}>
         <div style={{ float: 'left' }}>
-          <input type="text" id="content" value={comment.content}
+          <TextField label="share your idea" type="text" value={comment.content} size="small"
             onChange={(e) => setComment({ ...comment, content: e.target.value })} required
           />
         </div>
-        <button id="add-comment-button" type="submit">
-          add comment
-        </button>
+        <Button variant="contained" color="primary" type="submit" size="small"
+          style={{ paddingTop: 8, marginTop: 2 }}
+        >add comment
+        </Button>
       </form>
     </div>
   )
