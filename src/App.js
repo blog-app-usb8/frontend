@@ -4,12 +4,12 @@ import Togglable from './components/utils/Togglable'
 import Notification from './components/utils/Notification'
 
 import NavBar from './components/NavBar'
-import LoginForm from './components/LoginForm'
 import BlogForm from './components/BlogForm'
 import Blogs from './components/Blogs'
 import Writers from './components/Writers'
 import WriterDetail from './components/WriterDetail'
 import BlogDetail from './components/BlogDetail'
+import LoginSignup from './components/LoginSignup'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { initializeUserFromLocalStorage } from './reducers/userReducer'
@@ -29,7 +29,7 @@ function App() {
         <>
           <h1>LOG IN TO APP</h1>
           <Notification />
-          <LoginForm />
+          <LoginSignup />
         </>
       }
 

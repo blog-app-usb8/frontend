@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import loginService from '../services/login'
+import userService from '../services/user'
 import { throwNotification } from './notificationReducer'
 import blogsService from '../services/blogs'
 
@@ -16,10 +17,13 @@ const userSlice = createSlice({
     logout() {
       return null
     },
+    signup() {
+      return null
+    },
   },
 })
 
-export const { set, login, logout } = userSlice.actions
+export const { set, login, logout, signup } = userSlice.actions
 
 export const initializeUserFromLocalStorage = () => {
   return async dispatch => {
@@ -55,6 +59,18 @@ export const logoutUser = () => {
   return async dispatch => {
     window.localStorage.removeItem('localUser')
     dispatch(logout())
+  }
+}
+
+export const signupUser = (newObj) => {
+  return async dispatch => {
+    try {
+      const createdObj = await userService.signup(newObj)
+      dispatch(signup(createdObj))
+      dispatch(throwNotification({ success: `a new user ${createdObj.name} is added` }, 5))
+    } catch (exception) {
+      dispatch(throwNotification({ fail: `${exception}` }, 5))
+    }
   }
 }
 
