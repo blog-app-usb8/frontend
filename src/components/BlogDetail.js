@@ -9,6 +9,8 @@ import Comments from './Comments'
 import blogService from '../services/blogs'
 import CommentForm from './CommentForm'
 
+import { Button } from '@mui/material'
+
 const BlogDetail = () => {
   const urlParam = useParams()
   const blogId = urlParam.id
@@ -49,24 +51,30 @@ const BlogDetail = () => {
   return (
     <div>
       <h1>{blog.title}</h1>
-      <div>{blog.author}</div>
-      <div className="like">
+      <div style={{ paddingBottom:6 }}>{blog.author}</div>
+      <div style={{ paddingBottom:6 }}>{blog.url}</div>
+      <div className="like" style={{ paddingBottom:6 }}>
         like {blog.likes}&nbsp;
-        <button id="like-button" onClick={() => handleUpdate()}>
+        <Button variant="outlined" color="primary"
+          style={{ maxWidth: '40px', maxHeight: '22px', minWidth: '30px', minHeight: '22px' }}
+          id="like-button" onClick={() => handleUpdate()}
+        >
           like
-        </button>
+        </Button>
       </div>
-      <div>{blog.url}</div>
       {userId === blog.user.id || userId === blog.user
         ?
-        <button id="remove-blog-button" onClick={() => handleRemove()}>
+        <Button variant="contained" color="primary"
+          style={{ maxWidth: '64px', maxHeight: '22px', minWidth: '30px', minHeight: '22px' }}
+          id="remove-blog-button" onClick={() => handleRemove()}
+        >
           remove
-        </button>
+        </Button>
         :
         <></>
       }
 
-      <h2>comments</h2>
+      <h2>Comments</h2>
       <CommentForm comments={comments} setComments={setComments} />
       <Comments comments={comments} />
     </div>
