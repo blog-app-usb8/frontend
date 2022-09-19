@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { createObj } from '../reducers/blogsReducer'
 
+import { TextField, Button } from '@mui/material'
+
 const BlogForm = () => {
   const [newBlog, setNewBlog] = useState({
     title: '',
@@ -48,30 +50,30 @@ const BlogForm = () => {
 
   return (
     <div>
-      <h2>create new blog</h2>
+      <h2>Create new blog</h2>
 
       <form onSubmit={handleOnSubmit}>
-        <div>
-          title:
-          <input type="text" id="title" placeholder="title of the blog" value={newBlog.title}
+        <div style={{ marginBottom: 20 }}>
+          <TextField label="title" type="text" id="title" value={newBlog.title} size="small"
             onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })} required
           />
         </div>
-        <div>
-          author:
-          <input type="text" id="author" placeholder="author of the blog" value={newBlog.author}
+        <div style={{ marginBottom: 20 }}>
+          <TextField label="author" type="text" id="author" value={newBlog.author} size="small"
             onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })} required
           />
         </div>
-        <div>
-          url:
-          <input type="text" id="url" placeholder="url of the blog" value={newBlog.url}
+        <div style={{ marginBottom: 20 }}>
+          <TextField label="url" type="text" id="url" value={newBlog.url} size="small"
             onChange={(e) => setNewBlog({ ...newBlog, url: e.target.value })} required
           />
         </div>
-        <button type="submit">
-          create
-        </button>
+
+        <div style={{ marginBottom: 10 }}>
+          <Button size="small" type="submit">
+            add blog
+          </Button>
+        </div>
       </form>
     </div>
   )
