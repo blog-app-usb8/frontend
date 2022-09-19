@@ -54,19 +54,19 @@ const BlogForm = () => {
         <div>
           title:
           <input type="text" id="title" placeholder="title of the blog" value={newBlog.title}
-            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })} required
           />
         </div>
         <div>
           author:
           <input type="text" id="author" placeholder="author of the blog" value={newBlog.author}
-            onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })}
+            onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })} required
           />
         </div>
         <div>
           url:
           <input type="text" id="url" placeholder="url of the blog" value={newBlog.url}
-            onChange={(e) => setNewBlog({ ...newBlog, url: e.target.value })}
+            onChange={(e) => setNewBlog({ ...newBlog, url: e.target.value })} required
           />
         </div>
         <button type="submit">

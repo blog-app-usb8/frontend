@@ -23,23 +23,23 @@ const LoginForm = () => {
       {/* <div>
         username
         <input type="text" id="username" placeholder="username" value={username}
-          onChange={({ target }) => setUsername(target.value)}
+          onChange={({ target }) => setUsername(target.value)} required
         />
       </div>
       <div>
         password
         <input type="password" id="password" placeholder="password" value={password}
-          onChange={({ target }) => setPassword(target.value)}
+          onChange={({ target }) => setPassword(target.value)} required
         />
       </div> */}
 
       <div>
         username
-        <input {...username.fields} />
+        <input {...username.fields} required />
       </div>
       <div>
         password
-        <input {...password.fields} />
+        <input {...password.fields} required />
       </div>
 
       <button type="submit">

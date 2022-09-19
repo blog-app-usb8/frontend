@@ -34,7 +34,9 @@ const CommentForm = (props) => {
     <div>
       <form onSubmit={handleOnSubmit}>
         <div style={{ float: 'left' }}>
-          <input type="text" id="content" value={comment.content} name="Content" onChange={(e) => setComment({ ...comment, content: e.target.value })} />
+          <input type="text" id="content" value={comment.content}
+            onChange={(e) => setComment({ ...comment, content: e.target.value })} required
+          />
         </div>
         <button id="add-comment-button" type="submit">
           add comment

@@ -23,15 +23,15 @@ const SignupForm = () => {
       <form onSubmit={handleLogin}>
         <div>
           username
-          <input {...username.fields} />
+          <input {...username.fields} required />
         </div>
         <div>
           name
-          <input {...name.fields} />
+          <input {...name.fields} required />
         </div>
         <div>
           password
-          <input {...password.fields} />
+          <input {...password.fields} required />
         </div>
 
         <button type="submit">
