@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { initializeObjs } from '../reducers/writersReducer'
 import { Link } from 'react-router-dom'
 
+import { Grid } from '@mui/material'
+
 const Writers = () => {
   const writers = useSelector(({ writers }) => {
     const _writers = [...writers]
@@ -14,19 +16,13 @@ const Writers = () => {
     dispatch(initializeObjs())
   }, [dispatch])
 
-  const leftStyle = {
-    float: 'left',
-    minWidth: 150,
-  }
-  const rightStyle = {
-    float: 'left',
-  }
-
   return (
     <>
-      <div style={{ fontWeight: 'bold' }}>
-        <div style={leftStyle}>&nbsp;</div>
-        <div style={rightStyle}>blogs created</div>
+      <div style={{ fontWeight: 'bold', marginBottom: 10 }}>
+        <Grid container spacing={2}>
+          <Grid item xs={2}><></></Grid>
+          <Grid item xs={10}>blogs created</Grid>
+        </Grid>
       </div>
       {writers.map((o) => (
         <Link key={o.id} to={`/writers/${o.id}`}>
@@ -40,18 +36,12 @@ const Writers = () => {
 export default Writers
 
 const Writer = (props) => {
-  const leftStyle = {
-    float: 'left',
-    minWidth: 150,
-  }
-  const rightStyle = {
-    float: 'left',
-  }
-
   return (
-    <div className="writer" style={{ clear: 'both' }}>
-      <div style={leftStyle}>{props.writer.name}</div>
-      <div style={rightStyle}>{props.writer.blogs.length}</div>
+    <div className="writer" style={{ clear: 'both', marginTop: 18 }}>
+      <Grid container spacing={2}>
+        <Grid item xs={2}>{props.writer.name}</Grid>
+        <Grid item xs={10}>{props.writer.blogs.length}</Grid>
+      </Grid>
     </div>
   )
 }
