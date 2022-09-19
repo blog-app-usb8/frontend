@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux'
 import { signupUser } from '../reducers/userReducer'
 import { useField } from './utils/hooks'
 
+import { TextField, Button } from '@mui/material'
+
 const SignupForm = () => {
   const username = useField('text')
   const name = useField('text')
@@ -21,22 +23,21 @@ const SignupForm = () => {
   return (
     <div>
       <form onSubmit={handleLogin}>
-        <div>
-          username
-          <input {...username.fields} required />
+        <div style={{ marginBottom: 20 }}>
+          <TextField {...username.fields} label="username" required />
         </div>
-        <div>
-          name
-          <input {...name.fields} required />
+        <div style={{ marginBottom: 20 }}>
+          <TextField {...name.fields} label="name" required />
         </div>
-        <div>
-          password
-          <input {...password.fields} required />
+        <div style={{ marginBottom: 20 }}>
+          <TextField {...password.fields} label="password" required />
         </div>
 
-        <button type="submit">
-          signup
-        </button>
+        <div style={{ marginLeft: 70 }}>
+          <Button variant="contained" color="primary" type="submit" size="small">
+            signup
+          </Button>
+        </div>
       </form>
     </div>
   )

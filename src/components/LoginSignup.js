@@ -2,22 +2,30 @@ import React, { useState } from 'react'
 import LoginForm from './LoginForm'
 import SignupForm from './SignupForm'
 
+import { Button } from '@mui/material'
+
 const LoginSignup = () => {
   const [loginVisible, setLoginVisible] = useState(true)
 
   return (
     <>
       <div>
-        <button onClick={() => setLoginVisible(true)}>
+        <Button variant="contained" color="primary" type="submit"
+          onClick={() => setLoginVisible(true)}
+        >
           Login Form
-        </button>
-        <button onClick={() => setLoginVisible(false)}>
+        </Button>
+        <Button color="primary" type="submit"
+          onClick={() => setLoginVisible(false)}
+        >
           Signup Form
-        </button>
+        </Button>
       </div>
 
-      {loginVisible && <LoginForm />}
-      {!loginVisible && <SignupForm />}
+      <div style={{ paddingLeft: 6, paddingTop: 20 }}>
+        {loginVisible && <LoginForm />}
+        {!loginVisible && <SignupForm />}
+      </div>
     </>
   )
 }

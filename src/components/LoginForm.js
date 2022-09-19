@@ -4,6 +4,8 @@ import { useDispatch } from 'react-redux'
 import { loginUser } from '../reducers/userReducer'
 import { useField } from './utils/hooks'
 
+import { TextField, Button } from '@mui/material'
+
 const LoginForm = () => {
   // const [username, setUsername] = useState('')
   // const [password, setPassword] = useState('')
@@ -20,31 +22,18 @@ const LoginForm = () => {
 
   return (
     <form onSubmit={handleLogin}>
-      {/* <div>
-        username
-        <input type="text" id="username" placeholder="username" value={username}
-          onChange={({ target }) => setUsername(target.value)} required
-        />
+      <div style={{ marginBottom: 20 }}>
+        <TextField {...username.fields} label="username" required />
       </div>
-      <div>
-        password
-        <input type="password" id="password" placeholder="password" value={password}
-          onChange={({ target }) => setPassword(target.value)} required
-        />
-      </div> */}
-
-      <div>
-        username
-        <input {...username.fields} required />
-      </div>
-      <div>
-        password
-        <input {...password.fields} required />
+      <div style={{ marginBottom: 20 }}>
+        <TextField {...password.fields} label="password" required />
       </div>
 
-      <button type="submit">
-        login
-      </button>
+      <div style={{ marginLeft: 70 }}>
+        <Button variant="contained" color="primary" type="submit" size="small">
+          login
+        </Button>
+      </div>
     </form>
   )
 }
