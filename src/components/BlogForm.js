@@ -53,17 +53,23 @@ const BlogForm = () => {
       <form onSubmit={handleOnSubmit}>
         <div>
           title:
-          <input type="text" id="title" value={newBlog.title} name="Title" onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })} />
+          <input type="text" id="title" placeholder="title of the blog" value={newBlog.title}
+            onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+          />
         </div>
         <div>
           author:
-          <input type="text" id="author" value={newBlog.author} name="Author" onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })} />
+          <input type="text" id="author" placeholder="author of the blog" value={newBlog.author}
+            onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })}
+          />
         </div>
         <div>
           url:
-          <input type="text" id="url" value={newBlog.url} name="Url" onChange={(e) => setNewBlog({ ...newBlog, url: e.target.value })} />
+          <input type="text" id="url" placeholder="url of the blog" value={newBlog.url}
+            onChange={(e) => setNewBlog({ ...newBlog, url: e.target.value })}
+          />
         </div>
-        <button id="add-blog-button" type="submit">
+        <button type="submit">
           create
         </button>
       </form>
