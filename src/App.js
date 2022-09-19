@@ -14,6 +14,8 @@ import LoginSignup from './components/LoginSignup'
 import { useSelector, useDispatch } from 'react-redux'
 import { initializeUserFromLocalStorage } from './reducers/userReducer'
 
+import { Container } from '@mui/material'
+
 function App() {
   const user = useSelector(({ user }) => user)
   const dispatch = useDispatch()
@@ -24,7 +26,7 @@ function App() {
   const blogFormRef = useRef()
 
   return (
-    <div className="App">
+    <Container>
       { !user && // user === null
         <>
           <h1>LOG IN TO APP</h1>
@@ -55,7 +57,7 @@ function App() {
           </Routes>
         </>
       }
-    </div>
+    </Container>
   )
 }
 
