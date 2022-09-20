@@ -29,7 +29,7 @@ function App() {
     <Container>
       { !user && // user === null
         <>
-          <h1>LOG IN TO APP</h1>
+          <h1 style={{ textAlign:'center' }}>LOG IN TO APP</h1>
           <Notification />
           <LoginSignup />
         </>
