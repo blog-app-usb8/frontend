@@ -9,9 +9,13 @@ import '@testing-library/jest-dom/extend-expect'
 
 import { render, screen, cleanup } from '@testing-library/react'
 import { Provider } from 'react-redux'
-import App from './App'
+import App from '../App'
 
-import store from './store'
+import store from '../store'
+
+// import axiosMock from 'axios'
+// import pingpongService from '../services/pingpong'
+// jest.mock('axios')
 
 afterEach(() => cleanup())
 
@@ -39,6 +43,25 @@ describe('APP WORKED', () => {
 
   // test('API (pingpong) worked', () => {
     // NOTE: API with cypress libraries
+  // })
+
+  // test('renders element Pingpong mockApi', () => {
+  //   // NOTE: solve 'Network Error'
+  //   jest.mock('axios')
+  //   axiosMock.get.mockResolvedValueOnce(
+  //     {
+  //       data: 'pong'
+  //     }
+  //   )
+
+  //   pingpongService.getPingPong()
+  //     .then(res => {
+  //       // expect(res.status).toBe(200)
+  //       expect(typeof res).toBe('string')
+  //       expect(res).toContain('pong')
+  //       // expect(axiosMock.get).toHaveBeenCalledTimes(1)  // 1 time if assert success --> How about fail vs res.status = 300 !!!
+  //       // expect(axiosMock.get).toHaveBeenCalledWith('undefined/api/ping')  // !!!
+  //     })
   // })
 
 })

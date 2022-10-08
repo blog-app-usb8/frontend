@@ -1,7 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+// import React, { useRef, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Togglable from './components/utils/Togglable'
 import Notification from './components/utils/Notification'
+import pingpongService from './services/pingpong'
 
 import NavBar from './components/NavBar'
 import BlogForm from './components/BlogForm'
@@ -17,9 +19,13 @@ import { initializeUserFromLocalStorage } from './reducers/userReducer'
 import { Container } from '@mui/material'
 
 function App() {
+  const [testPingpong, setTestPingpong] = useState(null)
+
   const user = useSelector(({ user }) => user)
   const dispatch = useDispatch()
   useEffect(() => {
+    pingpongService.getPingPong()
+      .then(res => setTestPingpong(res))
     dispatch(initializeUserFromLocalStorage())
   }, [dispatch])
 
@@ -55,6 +61,12 @@ function App() {
             <Route path="/writers/:id" element={<WriterDetail />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
           </Routes>
+        </>
+      }
+
+      { process.env.REACT_APP_TEST_PING_PONG_CONNECTION &&
+        <>
+          <div className='pingpong' style={{ color: 'transparent' }}>{testPingpong}</div>
         </>
       }
     </Container>
