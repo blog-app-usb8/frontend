@@ -1,6 +1,6 @@
 // import React, { useRef, useEffect } from 'react'
 import React, { useRef, useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Togglable from './components/utils/Togglable'
 import Notification from './components/utils/Notification'
 import pingpongService from './services/pingpong'
@@ -60,6 +60,7 @@ function App() {
             <Route path="/writers" element={<Writers />} />
             <Route path="/writers/:id" element={<WriterDetail />} />
             <Route path="/blogs/:id" element={<BlogDetail />} />
+            <Route path="*" element={<NoMatch />} />
           </Routes>
         </>
       }
@@ -74,3 +75,15 @@ function App() {
 }
 
 export default App
+
+function NoMatch() {
+  let location = useLocation()
+
+  return (
+    <div>
+      <h3>
+        No match for <code>{location.pathname}</code>
+      </h3>
+    </div>
+  )
+}
