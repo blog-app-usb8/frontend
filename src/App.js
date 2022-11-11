@@ -33,43 +33,48 @@ function App() {
 
   return (
     <Container>
-      { !user && // user === null
-        <>
-          <h1 style={{ textAlign:'center' }}>LOG IN TO APP</h1>
-          <Notification />
-          <LoginSignup />
-        </>
-      }
+      <div style={{ minHeight: 920, backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) ), url(https://i.imgur.com/aMu3hF1.png)' }}>
+        {/* <div style={{ minHeight: 920, backgroundImage: 'linear-gradient( #eaebe8, #f1f3f0 )' }}> */}
+        { !user && // user === null
+          <div style={{ paddingTop: 8 }}>
+            <h1 style={{ textAlign:'center' }}>LOG IN TO APP</h1>
+            <Notification />
+            <LoginSignup />
+          </div>
+        }
 
-      { user &&
-        <>
-          <NavBar />
-          <Notification />
+        { user &&
+          <>
+            <NavBar />
+            <Notification />
 
-          <h1>BLOGS APP</h1>
+            <div style={{ paddingLeft: 30, paddingRight: 30 }}>
+              <h1>BLOGS APP</h1>
 
-          <Routes>
-            <Route path="/" element={
-              <>
-                <Togglable buttonLabel="new blog" ref={blogFormRef}>
-                  <BlogForm blogFormRef={blogFormRef} />
-                </Togglable>
-                <Blogs />
-              </>
-            } />
-            <Route path="/writers" element={<Writers />} />
-            <Route path="/writers/:id" element={<WriterDetail />} />
-            <Route path="/blogs/:id" element={<BlogDetail />} />
-            <Route path="*" element={<NoMatch />} />
-          </Routes>
-        </>
-      }
+              <Routes>
+                <Route path="/" element={
+                  <>
+                    <Togglable buttonLabel="new blog" ref={blogFormRef}>
+                      <BlogForm blogFormRef={blogFormRef} />
+                    </Togglable>
+                    <Blogs />
+                  </>
+                } />
+                <Route path="/writers" element={<Writers />} />
+                <Route path="/writers/:id" element={<WriterDetail />} />
+                <Route path="/blogs/:id" element={<BlogDetail />} />
+                <Route path="*" element={<NoMatch />} />
+              </Routes>
+            </div>
+          </>
+        }
 
-      { process.env.REACT_APP_TEST_PING_PONG_CONNECTION &&
-        <>
-          <div className='pingpong' style={{ color: 'transparent' }}>{testPingpong}</div>
-        </>
-      }
+        { process.env.REACT_APP_TEST_PING_PONG_CONNECTION &&
+          <>
+            <div className='pingpong' style={{ color: 'transparent' }}>{testPingpong}</div>
+          </>
+        }
+      </div>
     </Container>
   )
 }
