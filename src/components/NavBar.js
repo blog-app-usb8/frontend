@@ -16,6 +16,7 @@ const NavBar = () => {
       primary: {
         // light: will be calculated from palette.primary.main,
         main: '#004494',
+        mainGradient: 'linear-gradient( #004494, #0050ad )',
         // dark: will be calculated from palette.primary.main,
         // contrastText: will be calculated to contrast with palette.primary.main
       },
@@ -30,7 +31,8 @@ const NavBar = () => {
     // </div>
     <div>
       <ThemeProvider theme={theme}>
-        <AppBar position="static" color="primary">
+        {/* <AppBar position="static" color="primary" elevation={0}> */}
+        <AppBar position="static" style={{ background: theme.palette.primary.mainGradient }} elevation={0}>
           <Toolbar>
             <Button color="inherit" component={Link} to="/">blogs</Button>
             <Button color="inherit" component={Link} to="/writers">writers</Button>

@@ -33,7 +33,7 @@ function App() {
 
   return (
     <Container>
-      <div style={{ minHeight: 920, backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2) ), url(https://i.imgur.com/aMu3hF1.png)' }}>
+      <div style={{ minHeight: 920, backgroundImage: 'linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url(https://i.imgur.com/aMu3hF1.png)' }}>
         {/* <div style={{ minHeight: 920, backgroundImage: 'linear-gradient( #eaebe8, #f1f3f0 )' }}> */}
         { !user && // user === null
           <div style={{ paddingTop: 8 }}>
